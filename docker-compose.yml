@@ -1,0 +1,30 @@
+services:
+  rust-server:
+    image: Ludix0/rust:latest
+    container_name: rust
+    restart: unless-stopped
+    ports:
+      - "7777:28015/udp"
+      - "7777:28015/tcp"
+      - "28016:28016/tcp"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - UPDATE_ON_START=${UPDATE_ON_START}
+      - RUST_HOSTNAME=${RUST_HOSTNAME}
+      - RUST_IDENTITY=${RUST_IDENTITY}
+      - RUST_SEED=${RUST_SEED}
+      - RUST_WORLDSIZE=${RUST_WORLDSIZE}
+      - RUST_MAXPLAYERS=${RUST_MAXPLAYERS}
+      - RUST_PVE=${RUST_PVE}
+      - RUST_PORT=${RUST_PORT}
+      - RUST_RCON_PORT=${RUST_RCON_PORT}
+      - RUST_RCON_PASSWORD=${RUST_RCON_PASSWORD}
+      - RUST_RCON_WEB=${RUST_RCON_WEB}
+      - RUST_DESCRIPTION=${RUST_DESCRIPTION}
+      - RUST_SAVEINTERVAL=${RUST_SAVEINTERVAL}
+    volumes:
+      # Persistance des données (indispensable)
+      - ${HOME}/volumes/rust/filesServer:/home/steam/server_data
+      - $HOME/volumes/steamcmd:/home/steam/steamcmd
+      #- "$HOME/volumes/solace_crafting/config_files:/home/steam/.config/unity3d/Big Kitty Games/Solace Crafting"
