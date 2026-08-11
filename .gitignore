@@ -4,3 +4,4 @@
 *.env
 .actif
 description.txt
+*.swp
