@@ -1,1 +1,6 @@
 *.swp
+*.back
+.env
+*.env
+.actif
+description.txt
